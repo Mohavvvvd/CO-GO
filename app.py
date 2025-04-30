@@ -71,6 +71,10 @@ class CoworkingAI:
         return None
 
 # ===== ENDPOINT =====
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Coworking Space Booking System!"}
+
 
 @app.post("/available",response_model=Union[ReservationResponse, NextAvailabilityResponse]
 )
