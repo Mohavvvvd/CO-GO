@@ -1,0 +1,381 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.main-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+    padding: 0 20px;
+    flex-wrap: wrap;
+
+}
+
+.image img {
+    width: 700px;
+    height: 500px;
+    padding-top: 200px;
+}
+
+.contact {
+    width: 700px;
+}
+
+.contact h1 {
+    font-size: 70px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 0;
+}
+
+.contact p {
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact label {
+    font-family: "Roboto", sans-serif;
+    padding: 20px;
+}
+
+.name-input input {
+    height: 35px;
+    margin-bottom: 20px;
+    padding: 7px;
+    outline: none;
+}
+
+.email-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email-input input {
+    height: 35px;
+    margin-bottom: 20px;
+    padding: 7px;
+    outline: none;
+}
+
+.message-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-input textarea {
+    height: 200px;
+    margin-bottom: 20px;
+    padding-left: 13px;
+    padding-top: 12px;
+    outline: none;
+}
+
+.message-input textarea::placeholder {
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    transform: translateY(-50%);
+}
+#successModal {
+    display: none;  
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: green;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content{
+    background-color: white;
+    padding: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.close-btn{
+    background-color: red;
+    color: aliceblue;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.accept-term span {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.accept-term span input {
+    transform: scale(1.2);
+    margin: 0;
+}
+
+.accept-term span p {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+.contact button {
+    background-color: #49A7FF;
+    /* padding: 10px; */
+    border: none;
+    width: 100px;
+    color: white;
+    height: 50px;
+    margin-top: 7px;
+    font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+    .main-contact .image img {
+        display: none;
+    }
+
+    .main-contact .contact {
+        width: 100vw;
+    }
+
+    .main-contact .contact-means {
+        width: 100vw;
+    }
+
+    .name-input input,
+    .email-input input,
+    .message-input textarea {
+        margin: auto;
+        width: 90%;
+    }
+}
+
+.contact-means {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 100px;
+    height: auto;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.email box-icon {
+    transform: scale(1.8);
+    margin: 0;
+}
+
+.email h2,
+p {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 5px;
+}
+
+.email p {
+    font-size: 12px;
+}
+
+.live-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.live-chat box-icon {
+    transform: scale(1.8);
+    margin: 0;
+}
+
+.live-chat h2,
+p {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 5px;
+}
+
+.live-chat p {
+    font-size: 12px;
+}
+
+.phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.phone box-icon {
+    transform: scale(1.8);
+    margin: 0;
+}
+
+.phone h2,
+p {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 5px;
+}
+
+.phone p {
+    font-size: 12px;
+}
+
+@media (max-width: 912px) {
+    .contact-means {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .email,
+    .live-chat,
+    .phone {
+        align-items: center;
+        /* margin-bottom: 20px; */  
+    }
+
+    .contact button {
+        width: 90vw;
+    }
+
+    .location img {
+        width: 100vw;
+    }
+}
+
+.location {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -50px;
+}
+
+.location .map {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+.location .title h1 {
+    font-size: 70px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 0;
+}
+
+.location .title p {
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.location .map .location-desc .sousse {
+    border-left: solid 2px black;
+    padding-left: 15px;
+    margin-bottom: 40px;
+}
+
+.location .map .location-desc .tunis {
+    /* border-left: solid 2px black; */
+    padding-left: 15px;
+    margin-bottom: 40px;
+}
+
+.location .map .location-desc .sfax {
+    /* border-left: solid 2px black; */
+    padding-left: 15px;
+}
+
+.location img {
+    width: 732px;
+    height: 500px;
+
+}
+
+.location .map .location-desc {
+    font-family: "Roboto", sans-serif;
+}
+#Footer {
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+.location .map .location-desc #p1 {
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .location img {
+        width: 100%;
+        height: 400px;
+    }
+    #Footer{
+        width: 100%;
+        height: 800px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .location img {
+        width: 100%;
+        height: 650px;
+    }
+   
+}
+
+@media (min-width: 1600px) {
+    .location {
+        gap: 500px;
+    }
+    
+
+    .location img {
+        margin-top: 100px;
+        /* margin-left: -100px; */
+    }
+}
+
+

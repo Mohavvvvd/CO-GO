@@ -1,0 +1,17 @@
+.profile-container {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .form-label {
+    font-weight: 600;
+  }
+  #editBtn, #saveBtn {
+    width: 100px;
+  }
+  .container {
+    margin-top: 1rem;
+  }

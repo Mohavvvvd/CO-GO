@@ -1,0 +1,302 @@
+
+:root {
+    --primary-color: #4299e1;
+    --secondary-color: #2d3748;
+    --light-gray: #f7fafc;
+    --border-color: #ccc;
+    --border-radius: 12px;
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* General Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--secondary-color);
+    background-color: #fff;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+.left-column {
+    border-right: 2px solid var(--border-color);
+    background-color: none;
+}
+
+/* Card Styles */
+.card {
+    margin: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: white;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: white;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+    border-color: var(--primary-color);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+
+#nbEquipement {
+    margin-left: 100px;
+    border-radius: 5px;
+    width: 50px;
+    height: 25px;
+}
+
+.modal {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+  }
+
+  .modal-content {
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 5px; right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+
+/* Button Styles */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #3182ce;
+    border-color: #3182ce;
+    box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
+}
+
+/* Room Card Styles */
+.room-image {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: 120px;
+}
+
+.d-flex.flex-wrap.gap-3 span {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.d-flex.flex-wrap.gap-3 i {
+    color: #000;
+    width: 16px;
+    text-align: center;
+}
+
+.flex-equipement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nbEquipement {
+    padding: 10px 0;
+}
+
+/* Equipment List Styles */
+.equipment-list {
+    padding-right: 10px;
+}
+
+.equipment-list .form-check {
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    margin-bottom: 8px;
+}
+
+.equipment-list .form-check:hover {
+    background-color: var(--light-gray);
+}
+
+.equipment-list .form-check-input {
+    border-color: #cbd5e0;
+}
+
+.equipment-list .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.equipment-list .form-check-input:checked + .form-check-label {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Booking Details Card */
+.card h4 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.card h5 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Summary Styles */
+#summaryEquipment {
+    margin: 0;
+    padding: 0;
+}
+
+#summaryEquipment li {
+    padding: 4px 0;
+    color: var(--secondary-color);
+}
+
+.text-muted {
+    color: #718096 !important;
+}
+
+hr {
+    border-color: var(--border-color);
+    margin: 1.5rem 0;
+}
+
+/* Price Summary */
+.pricing-summary span {
+    color: var(--secondary-color);
+}
+
+#totalPrice {
+    color: var(--primary-color) !important;
+    font-size: 1.1rem;
+}
+
+/* Star Rating */
+.fas.fa-star, .fas.fa-star-half-alt {
+    color: #ecc94b;
+}
+
+/* Footer Styles 
+footer {
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+}
+
+footer a {
+    color: #718096;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+    */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.25rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+}
+
+/* Animation */
+.btn, .form-control, .card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Equipment Icons */
+.equipment-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    color: #000;
+}
+
+/* Date Picker Custom Style */
+input[type="date"] {
+    cursor: pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} 

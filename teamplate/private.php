@@ -1,0 +1,222 @@
+<?php 
+    include("../config/connect.php");
+    session_start();
+
+    $stmt = $conx->prepare("select numLocal, capacite, surface, rating, prix, nbLocal from local where typeLocal = 'private' ");
+    if (!$stmt->execute()) {
+        sendResponse(500, "Erreur d'exécution de la requête : " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+    if (!$result) { 
+        sendResponse(500, "Erreur de récupération des résultats : " . $stmt->error);
+    }
+
+
+    $row = $result->fetch_assoc();
+    $numLocal = $row['numLocal'];
+    $capacite = $row['capacite'];
+    $rating = $row['rating'];
+    $surface = $row['surface'];
+    $prixLocal = $row['prix'];
+    $stmt->close();
+        
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/private.css">
+    <link rel="stylesheet" href="../css/meeting.css">
+    <style>
+        #Footer{
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+}
+
+.btn2{
+        text-decoration: unset;
+        align-items: center;
+        text-decoration: none;text-align: center;
+        padding-top: 15px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <p id="title">Services > <span>Private Room</span></p>
+    <div class="image-container">
+        <div class="grid-container">
+            <div class="box1">
+                <img src="../assets/private1.jpg">
+            </div>
+            <div class="box">
+                <img src="../assets/private2.jpg">
+            </div>
+            <div class="box">
+                <img src="../assets/private3.jpg">
+            </div>
+            <div class="box">
+                <img src="../assets/private4.jpg">
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-container-responsive">
+        <div class="carousel">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/img1.jpg" class="d-block w-100 carousel-img" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img2.jpg" class="d-block w-100 carousel-img" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img3.jpg" class="d-block w-100 carousel-img" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="description">
+            <div class="info">
+                <div class="info1">
+                    <img src="../assets/icon1.png">
+                    <p>Private Room</p>
+                </div>
+
+                <div class="info1">
+                    <img src="../assets/icon2.png">
+                    <p><?php echo $capacite ?> Guests</p>
+                </div>
+
+                <div class="info1">
+                    <img src="../assets/icon3.png">
+                    <p><?php echo $prixLocal ?> Dinar</p>
+                </div>
+
+                <div class="info1">
+                    <img src="../assets/icon4.png">
+                    <p><?php echo $surface ?></p>
+                </div>
+            </div>
+            <div class="desc">
+                <h3>Description</h3>
+                <p>The private office is a quiet, fully furnished space designed for individual work or small team collaboration. It features a spacious desk, an ergonomic chair, lockable storage, and high-speed Wi-Fi. The room is sound-insulated for maximum privacy, making it ideal for focused tasks, confidential meetings, or remote work. Large windows provide natural light, while adjustable lighting ensures comfort throughout the day. Each office is equipped with its own climate control and can be personalized to match your workflow. Available for daily, weekly, or monthly bookings, the private office offers a professional and comfortable environment to boost productivity.</p>
+            </div>
+        </div>
+        <div class="request">
+            <div class="box-choice">
+                <?php 
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<a class="btn2" target="display" href="../teamplate/reservation.php">book now</a>';
+                    } else {
+                        echo '<div class="alert">You need to sign up to make a reservation.</div>';
+                    }               
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="offer">
+    <h2>What this place offers</h2>
+    <div class="offer-grid">
+        <div class="off">
+            <img src="../assets/equip1.png" alt="">
+            <p>TV</p>
+        </div>
+
+        <div class="off" id="e2">
+            <img src="../assets/equip2.png" alt="">
+            <p>Wifi</p>
+        </div>
+
+        <div class="off" id="e1">
+            <img src="../assets/equip3.png" alt="">
+            <p>Air conditioning</p>
+        </div>
+
+        <div class="off" id="e1">
+            <img src="../assets/equip4.png" alt="">
+            <p>Orthopedic chair</p>
+        </div>
+
+        <div class="off" id="e1">
+            <img src="../assets/equip5.png" alt="">
+            <p>Coffee machines</p>
+        </div>
+
+        <div class="off">
+            <img src="../assets/equip6.png" alt="">
+            <p>Kitchen</p>
+        </div>
+    </div>
+</div>
+<div class="equipement">
+    <h2 style="margin-top: 30px; margin-left: 140px;">Equipement</h2>
+    <div class="equipement-grid">
+        <div class="equip" id="equip0">
+            <img src="../assets/equipement1.png" alt="">
+            <p>Video conferencing camera</p>
+        </div>
+
+        <!-- <div class="equip" id="equip1">
+            <img src="../assets/equipement2.png" alt="">
+            <p>Speaker System</p>
+        </div> -->
+
+        <div class="equip" id="equip2">
+            <img src="../assets/equipement3.png" alt="">
+            <p>Screen</p>
+        </div>
+
+        <div class="equip" id="equip3">
+            <img src="../assets/equipement4.png" alt="">
+            <p>Whiteboard walls</p>
+        </div>
+
+        <div class="equip" id="equip4">
+            <img src="../assets/equipement5.png" alt="">
+            <p>Projector</p>
+        </div>
+
+        <div class="equip" id="equip5">
+            <img src="../assets/equipement6.png" alt="">
+            <p>Printer</p>
+        </div>
+
+        <!-- <div class="equip" id="equip6">
+            <img src="../assets/equipement7.png" alt="">
+            <p>High-quality microphone</p>
+        </div> -->
+
+        <!-- <div class="equip" id="equip7">
+            <img src="../assets/equipement8.png" alt="">
+            <p>VR headset setup</p>
+        </div> -->
+    </div>
+</div>
+<iframe src="./footer.html" frameborder="0" id="Footer"></iframe>
+</body>
+
+</html>
